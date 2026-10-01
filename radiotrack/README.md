@@ -1,0 +1,10 @@
+# Radio Track - Inventory System
+
+Custom Two-Way Radio Inventory System for Two-Way Radio Shops. We will be tracking manufacturer, model, model number, serial number, cost, asking (selling) price, date aquired. This inventory will slowly be built out from CLI to a GUI system. Once I have it built out to where I'd like, I will go to the next module/project to expand the system even further. 
+
+---
+### Why am I doing this?
+I started programming back in highschool (20+ years ago). Tried teaching myself C/C++ and eventually settling down with VB6. Used VB6 for games mostly with Eclipse/Eclipse Origin from way back in the day. Graduated highschool then went to College. Went for programming and ended up with Python. I enjoyed Python, loved how easy it was for me to pick it up. Got a web developer job right after graduating college for Python/Django. Worked at that job for 2.5 years before the company laid basically everyone off. That left a real bitter taste in my mouth for programming and ended up learning Two-Way Radio repair afterwards. Found out I was a lot better at hardware repair than programming. I let my programming skills go to the back burner and then AI came around. I had plenty of ideas for projects and games again. Ended up using AI to do a lot of the programming for me. Sadly I have relied on AI for far to long and now going back to the basics to relearn and remember the ins and outs to programming in Python. Thus Radio Track and other smaller projects that will eventually build into my custom solution for my Two-Way Radio Shop I own/run.
+
+### Can you help?
+Yes tear the code apart. Point out the flaws in it. Tell me I screwed something up even though it works. Just be sure to point to Python Documentation so I can dive deeper into the documentation and understand why I messed up.
