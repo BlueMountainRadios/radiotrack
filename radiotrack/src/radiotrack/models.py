@@ -1,33 +1,49 @@
 from dataclasses import dataclass, field
 from datetime import date
 from decimal import Decimal
-from enum import Enum
 
 
-class RadioCondition(Enum):
-    NEW = "New"
-    GOOD = "Good"
-    FAIR = "Fair"
-    PARTS_ONLY = "Parts Only"
-    UNREPAIRABLE = "Unrepairable"
+@dataclass
+class RadioStatus:
+    id: int
+    status: str
+    meaning: str
 
 
-class RadioStatus(Enum):
-    INTAKE = "Intake"
-    TESTED = "Tested"
-    LISTED = "Listed"
-    SOLD = "Sold"
+@dataclass
+class Manufacturer:
+    id: int = field(kw_only=True)
+    name: str
+    
+
+@dataclass
+class RadioAccessoryType:
+    id: int = field(kw_only=True)
+    accessory_type: str
+    manufacturer: Manufacturer
+    
+
+@dataclass
+class RadioAccessory:
+    id: int = field(kw_only=True)
+    accessory_type: RadioAccessoryType
+    accessory_model: str
+    accessory_name: str
+    accessory_manufacturer: Manufacturer
+    cost: Decimal
+    selling_price: Decimal | None = None
 
 
 @dataclass
 class Radio:
     id: int = field(kw_only=True)
-    manufacturer: str
+    manufacturer: Manufacturer
     model: str
     model_number: str
     serial_number: str
-    condition: RadioCondition
-    status: RadioStatus = RadioStatus.INTAKE
+    status: RadioStatus    
     cost: Decimal
     date_acquired: date
-    asking_price: Decimal
+    accessories: list[RadioAccessory] = field(default=list)
+    selling_price: Decimal | None = None
+    
