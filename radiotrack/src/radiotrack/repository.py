@@ -19,6 +19,9 @@ class Repository[T]:
             
 
         """
+        
+        item.id = self.generate_id()
+        
         self._items[item.id] = item
     
     def get (self, item_id: int) -> T:
