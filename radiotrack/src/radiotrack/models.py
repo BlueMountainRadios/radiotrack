@@ -14,14 +14,14 @@ class RadioStatus:
 class Manufacturer:
     id: int = field(kw_only=True)
     name: str
-    
+
 
 @dataclass
 class RadioAccessoryType:
     id: int = field(kw_only=True)
     accessory_type: str
     manufacturer: Manufacturer
-    
+
 
 @dataclass
 class RadioAccessory:
@@ -41,9 +41,8 @@ class Radio:
     model: str
     model_number: str
     serial_number: str
-    status: RadioStatus    
-    cost: Decimal
+    status: RadioStatus
+    purchase_price: Decimal
     date_acquired: date
     accessories: list[RadioAccessory] = field(default=list)
     selling_price: Decimal | None = None
-    
