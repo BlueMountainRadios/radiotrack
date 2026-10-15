@@ -3,7 +3,7 @@ class Repository[T]:
     """
     def __init__(self):
         self._items: dict[int, T] = {}
-    
+
     def add(self, item: T) -> None:
         """
         Adds item to the the Repository.
@@ -16,14 +16,12 @@ class Repository[T]:
         Returns
         -------
         None
-            
+
 
         """
-        
-        item.id = self.generate_id()
-        
+
         self._items[item.id] = item
-    
+
     def get (self, item_id: int) -> T:
         """
         Returns the item based on the id we want.
@@ -40,7 +38,6 @@ class Repository[T]:
 
         """
         return self._items[item_id]
-    
+
     def generate_id(self) -> int:
         return len(self._items)
-
