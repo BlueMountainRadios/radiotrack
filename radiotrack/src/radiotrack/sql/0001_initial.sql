@@ -11,8 +11,17 @@ CREATE TABLE IF NOT EXISTS manufacturer(
 
 CREATE TABLE IF NOT EXISTS radioaccessorytype(
     id BIGINT GENERATED ALWAYS AS INDENTITY PRIMARY KEY,
-    accessory_type TEXT NOT NULL,
-    manufacturer_id BIGINT REFERENCES manufacturer(id) -- Foreign Key to Manufacturer
+    type TEXT NOT NULL,
+);
+
+CREATE TABLE IF NOT EXISTS radioaccessory(
+    id BIGINT GENERATED ALWAYS AS INDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    model TEXT NOT NULL,
+    accessory_type_id BIGINT REFERENCES radioaccessorytype(id), -- Foreign Key to Radio Accessory accessory_type
+    manufacturer_id BIGINT REFERENCES manufacturer(id), -- Foreign Key to Manufacturer
+    purhcase_price DECIMAL(10, 2) CHECK (purchase_price > 0),
+    selling_price DECIMAL(10, 2) CHECK (selling_price > 0)
 );
 
 

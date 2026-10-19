@@ -20,17 +20,16 @@ class Manufacturer:
 class RadioAccessoryType:
     id: int = field(kw_only=True)
     accessory_type: str
-    manufacturer: Manufacturer
 
 
 @dataclass
 class RadioAccessory:
     id: int = field(kw_only=True)
+    name: str
+    model: str
     accessory_type: RadioAccessoryType
-    accessory_model: str
-    accessory_name: str
-    accessory_manufacturer: Manufacturer
-    cost: Decimal
+    manufacturer: Manufacturer
+    purchase_price: Decimal
     selling_price: Decimal | None = None
 
 

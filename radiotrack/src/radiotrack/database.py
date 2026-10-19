@@ -19,10 +19,10 @@ class Databasemanager:
     def execute_query(self, query:str, params: Optional[Tuple[Any, ...]] = None) ->None:
         pass
 
-    def execute_many(self, query:str, params: List[Tuple[Any, ...]]) ->None:
+    def execute_many(self, query:str, params: list[Tuple[Any, ...]]) ->None:
         pass
 
-    def fetch_all(self, query:str, params: Optional[Tuple[Any, ...]] = None) -> List[Tuple[Any, ...]]:
+    def fetch_all(self, query:str, params: Optional[Tuple[Any, ...]] = None) -> list[Tuple[Any, ...]]:
         pass
 
     def fetch_one(self, query:str, params: Optional[Tuple[Any, ...]] = None) -> Optional[Tuple[Any, ...]]:
