@@ -1,26 +1,26 @@
-CREATE TABLE IF NOT EXISTS radiostatus(
+CREATE TABLE IF NOT EXISTS radio_status(
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     status TEXT NOT NULL,
     meaning TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS manufacturer(
-    id BIGINT GENERATED ALWAYS AS INDENTITY PRIMARY KEY,
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name TEXT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS radioaccessorytype(
-    id BIGINT GENERATED ALWAYS AS INDENTITY PRIMARY KEY,
-    type TEXT NOT NULL,
+CREATE TABLE IF NOT EXISTS radio_accessory_type(
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    type TEXT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS radioaccessory(
-    id BIGINT GENERATED ALWAYS AS INDENTITY PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS radio_accessory(
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name TEXT NOT NULL,
     model TEXT NOT NULL,
     accessory_type_id BIGINT REFERENCES radioaccessorytype(id), -- Foreign Key to Radio Accessory accessory_type
     manufacturer_id BIGINT REFERENCES manufacturer(id), -- Foreign Key to Manufacturer
-    purhcase_price DECIMAL(10, 2) CHECK (purchase_price > 0),
+    purchase_price DECIMAL(10, 2) CHECK (purchase_price > 0),
     selling_price DECIMAL(10, 2) CHECK (selling_price > 0)
 );
 
@@ -36,5 +36,5 @@ CREATE TABLE IF NOT EXISTS radio(
     date_acquired DATE  DEFAULT CURRENT_DATE,
     selling_price DECIMAL(10, 2) CHECK (selling_price > 0),
     accessories TEXT,
-    version BIGINT NOT NULL
+    version BIGINT NOT NULL DEFAULT 0
 );
