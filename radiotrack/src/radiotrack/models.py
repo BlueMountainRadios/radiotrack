@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import date
 from decimal import Decimal
 
@@ -12,30 +12,31 @@ class RadioStatus:
 
 @dataclass
 class Manufacturer:
-    id: int = field(kw_only=True)
+    id: int
     name: str
 
 
 @dataclass
-class RadioAccessoryType:
-    id: int = field(kw_only=True)
-    accessory_type: str
+class AccessoryType:
+    id: int
+    type: str
+    description: str
 
 
 @dataclass
-class RadioAccessory:
-    id: int = field(kw_only=True)
+class Accessory:
+    id: int
     name: str
     model: str
-    accessory_type: RadioAccessoryType
-    manufacturer: Manufacturer
+    accessory_id: AccessoryType
+    manufacturer_id: Manufacturer
     purchase_price: Decimal
-    selling_price: Decimal | None = None
+    selling_price: Decimal
 
 
 @dataclass
 class Radio:
-    id: int = field(kw_only=True)
+    id: int
     manufacturer: Manufacturer
     model: str
     model_number: str
@@ -43,5 +44,10 @@ class Radio:
     status: RadioStatus
     purchase_price: Decimal
     date_acquired: date
-    accessories: list[RadioAccessory] = field(default=list)
-    selling_price: Decimal | None = None
+    selling_price: Decimal
+
+@dataclass
+class AccessoryToRadio:
+    id: int
+    accessory_id: int
+    radio_id: int
